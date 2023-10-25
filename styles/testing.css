@@ -1,0 +1,94 @@
+/* Reset some default styles */
+body, h1, h5, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set a gradient background and text color for the body */
+  body {
+    background: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(33, 205, 156, 1));
+    color: #333;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style the navigation bar */
+  .navbar {
+    background-color: #333;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1rem;
+    margin-right: 15px;
+  }
+  
+  /* Style the header */
+  h1 {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Style the card containers */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  /* Style the forms */
+  form {
+    padding: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Style the card deck */
+  .card-deck {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .card-title {
+    font-weight: bold;
+  }
+  
+  /* Add some responsive styling */
+  @media (max-width: 768px) {
+    .card-deck {
+      flex-direction: column;
+    }
+  }
+  

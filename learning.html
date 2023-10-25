@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/learning.css">
+    <title>SQL Injection</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="./img/logo.png" alt="Logo">
+            <a href="./index.html">SQL Injection</a>
+            <a href="./index.html">Home</a>
+        </nav>
+    </header>
+
+    <main>
+    <div class="first-div">
+        
+        <h1>What is SQL Injection & its Types in Detail?</h1>
+
+        <p>SQL injection is a type of cybersecurity vulnerability that occurs when an attacker is able to manipulate an application's input to execute unintended SQL (Structured Query Language) commands within a database. This can lead to unauthorized access, data manipulation, or even data loss. SQL injection attacks can be very damaging and are considered one of the most prevalent web application security risks.</p>
+
+        <h2>1. Classic SQL Injection:</h2>
+        <p>This is the most basic form of SQL injection. It occurs when an attacker is able to insert malicious SQL statements into an application's input fields. For example, consider a login form where the user enters their username and password. If the application doesn't properly sanitize and validate the inputs, an attacker could input something like:
+
+            bash
+            Copy code
+            ' OR '1'='1
+            This malicious input would cause the application to generate an SQL query that always evaluates to true, effectively bypassing the authentication mechanism.
+            </p>
+
+        <h2>2. Blind SQL Injection:</h2>
+        <p>In blind SQL injection, the attacker doesn't directly see the results of their injected queries, but they can infer information based on the application's behavior. Blind SQL injection attacks involve sending queries that cause the application to respond differently depending on whether the injected condition is true or false. This can be used to extract sensitive information from the database bit by bit.</p>
+
+        <h2>3. Time-Based Blind SQL Injection:</h2>
+        <p>This is a type of blind SQL injection where an attacker exploits the time delays in database responses. By injecting queries that cause delays in the application's responses, the attacker can infer whether a specific condition is true or false based on the time it takes for the application to respond.</p>
+
+        <h2>4. Error-Based SQL Injection:</h2>
+        <p>Error-based SQL injection attacks involve injecting SQL statements that trigger error messages from the database. These error messages often contain valuable information about the database structure and data. Attackers can use this information to further refine their attacks.</p>
+
+        <h2>5. Union-Based SQL Injection:</h2>
+        <p>Union-based SQL injection attacks exploit the UNION SQL operator, which is used to combine the result sets of two or more SELECT queries. An attacker can inject a malicious query that includes a UNION statement to retrieve data from another table or even another database. This is effective when the application is concatenating user input directly into an SQL query without proper validation.</p>
+
+        <h2>6. Second-Order SQL Injection:</h2>
+        <p>In a second-order SQL injection, the malicious payload is stored in the database, rather than being executed immediately upon input. It is later executed when the stored data is used as part of a new query. This can make it harder to detect and may lead to delayed attacks.</p>
+
+        <h2>7. Out-of-Band SQL Injection:</h2>
+        <p>In out-of-band SQL injection, the attacker doesn't rely on the application's response to their queries. Instead, they use other communication channels to retrieve data or perform actions, such as DNS queries or HTTP requests.</p>
+
+        <p>Mitigating SQL injection attacks involves implementing secure coding practices such as input validation, using parameterized queries or prepared statements, employing proper authentication and authorization mechanisms, and keeping software and libraries up to date. Regular security audits and penetration testing can also help identify and address vulnerabilities in applications.</p>
+        <hr>
+    </div>
+    <div class="second-div">    
+        
+        <h1>All About SQL Injection</h1>
+        <h2>Password Hashing</h2>
+        <h3>Hashing Process:</h3>
+        <p>Password hashing is a critical aspect of cybersecurity, especially when it comes to storing and managing user passwords securely. Hashing is a one-way function that takes an input (in this case, a password) and transforms it into a fixed-length string of characters, which is typically a sequence of numbers and letters. The primary purpose of hashing passwords is to protect the original passwords from being easily readable in case of a data breach or unauthorized access.</p>
+
+        <h4>Salting:</h4>
+        <p>A common practice to enhance password security is to use a technique called "salting." A salt is a random value that is generated for each user and then combined with their password before hashing. The salt is then stored alongside the hash in the database. This makes it much more difficult for attackers to use precomputed tables (like rainbow tables) to reverse engineer the passwords, as they would need to generate a new rainbow table for each unique salt.</p>
+
+        <h2>Username and Password Hashing</h2>
+        <h3>Importance of Username and Password Hashing:</h3>
+        <p>While hashing usernames is not a common practice due to usability concerns, password hashing is crucial for safeguarding user credentials. Properly implementing password hashing techniques, including salting and using strong hashing algorithms, helps protect user passwords from unauthorized access and data breaches.</p>
+
+        <h2>Parameterized Queries</h2>
+        <h3>Understanding Parameterized Queries:</h3>
+        <p>Parameterized queries, also known as prepared statements, are a fundamental technique used in programming to prevent SQL injection attacks. They offer a way to execute dynamic SQL queries safely by separating the query structure from the actual user-provided values.</p>
+
+        <h2>Escaping Special Input</h2>
+        <h3>Importance of Escaping Special Input:</h3>
+        <p>Escaping special inputs is a crucial step in web development and programming to prevent security vulnerabilities, particularly SQL injection, cross-site scripting (XSS), and other forms of code injection attacks. Escaping involves converting potentially harmful characters into safe representations, ensuring that user-provided input is treated as data and not as executable code.</p>
+
+        <h3>Key Points:</h3>
+        <p>1. SQL Injection: In SQL injection attacks, attackers manipulate input data to execute unauthorized SQL commands on a database. Escaping input helps ensure that user-provided data doesn't alter the structure of the SQL query.</p>
+
+        <p>2. Cross-Site Scripting (XSS): XSS attacks involve injecting malicious scripts into web pages viewed by other users. Escaping input data helps prevent these scripts from being executed by the browser.</p>
+
+        <p>3. Command Injection: Command injection attacks occur when attackers manipulate input data to execute arbitrary system commands. Escaping input prevents these commands from being executed.</p>
+
+        <p>4. URL Encoding: For data transmitted in URLs, escaping special characters is necessary to avoid incorrect interpretation by web servers and browsers.</p>
+
+        <p>5. Importance of Input Validation: Escaping is not a substitute for input validation, which involves checking the validity of user input against expected formats or values. Proper validation should be performed before escaping to reject invalid input altogether.</p>
+
+        <p>6. Contextual Escaping: The method of escaping may vary based on the context in which data is used. Different contexts, such as SQL queries, HTML content, JavaScript, and URLs, require different types of escaping to prevent attacks. For example, escaping for an SQL query is different from escaping for HTML content.</p>
+
+        <p>7. Using Libraries and Frameworks: Modern programming languages, frameworks, and libraries provide built-in functions or methods for escaping input according to the context. Using these tools reduces the risk of making mistakes in manual escaping.</p>
+
+        <p>8. Example (PHP and SQL): Here's a simple example in PHP demonstrating how to escape input for an SQL query using the mysqli library.</p>
+        
+    </div>
+    </main>
+</body>
+
+</html>
